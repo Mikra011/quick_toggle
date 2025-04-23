@@ -1,11 +1,8 @@
 import './App.css'
+import PopUp from './components/PopUp/PopUp';
 
-function App() {
-  return (
-    <>
-     <h1>Hello Chrome!</h1>
-    </>
-  )
-}
+const App: React.FC = () => {
+  return <PopUp />;
+};
 
-export default App
+export default App;

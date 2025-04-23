@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Quick Toggle",
+    "version": "1.0",
+    "description": "Toggle all your Chrome extensions with a click.",
+    "permissions": [
+        "management",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
