@@ -21,8 +21,7 @@ const PopUp: React.FC = () => {
     };
 
     const openSettings = () => {
-        // Later open a separate HTML page or tab
-        console.log('Open settings...');
+        chrome.runtime.openOptionsPage();
     };
 
     return (
