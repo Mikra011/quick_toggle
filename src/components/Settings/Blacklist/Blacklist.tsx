@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Extension } from '../../../utils/types';
+import { getChrome } from '../../../utils/getChrome';
+
+const chrome = getChrome()
 
 const Blacklist: React.FC = () => {
     const [extensions, setExtensions] = useState<Extension[]>([]);
     const [blacklist, setBlacklist] = useState<string[]>([]);
-    console.log(extensions)
 
     useEffect(() => {
         chrome.management.getAll((exts) => {

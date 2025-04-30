@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { GroupMap } from "../../utils/types";
+import { getChrome } from "../../utils/getChrome";
+
+const chrome = getChrome()
 
 const PopUp: React.FC = () => {
     const [groups, setGroups] = useState<GroupMap>({});

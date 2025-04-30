@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Extension, GroupMap } from "../../../utils/types";
+import { getChrome } from "../../../utils/getChrome";
+
+const chrome = getChrome()
 
 const HandleGroups: React.FC = () => {
     const [extensions, setExtensions] = useState<Extension[]>([]);
