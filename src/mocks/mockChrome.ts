@@ -5,6 +5,15 @@ import { Extension } from "../utils/types";
 const fakeExtensions = [
     { id: "ext1", name: "Ext 1", enabled: true, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
     { id: "ext2", name: "Ext 2", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext3", name: "Ext 3", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext4", name: "Ext 4", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext5", name: "Ext 5", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext6", name: "Ext 6", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext7", name: "Ext 7", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext8", name: "Ext 8", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext9", name: "Ext 9", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+    { id: "ext10", name: "Ext 10", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
+
 ];
 
 let fakeStorage: Record<string, any> = {

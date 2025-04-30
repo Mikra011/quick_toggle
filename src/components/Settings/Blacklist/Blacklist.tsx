@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Extension } from '../../../utils/types';
 import { getChrome } from '../../../utils/getChrome';
+import ToggleSwitch from '../../common/ToggleSwitch';
+import "./Blacklist.css"
 
 const chrome = getChrome()
 
@@ -28,27 +30,30 @@ const Blacklist: React.FC = () => {
     };
 
     return (
-        <div style={{ padding: 16 }}>
-            <h1>Blacklist Extensions</h1>
+        <div className="blacklist-container">
+          <h1>Blacklist Extensions</h1>
+          <div className="grid-container">
             {extensions.map(ext => (
-                <div key={ext.id} style={{ marginBottom: 8 }}>
-                    {ext.icons?.[0] && (
-                        <img
-                            src={ext.icons[0].url}
-                            alt={`${ext.name} icon`}
-                            width={16}
-                            height={16}
-                            style={{ marginRight: 8 }}
-                        />
-                    )}
-                    <span>{ext.name}</span>
-                    <button onClick={() => toggleBlacklist(ext.id)} style={{ marginLeft: 10 }}>
-                        {blacklist.includes(ext.id) ? 'Remove from Blacklist' : 'Blacklist'}
-                    </button>
-                </div>
+              <div key={ext.id} className="card">
+                {ext.icons?.[0] && (
+                  <img
+                    src={ext.icons[0].url}
+                    alt={`${ext.name} icon`}
+                    width={16}
+                    height={16}
+                  />
+                )}
+                <span>{ext.name}</span>
+                <ToggleSwitch
+                  isOn={blacklist.includes(ext.id)}
+                  onToggle={() => toggleBlacklist(ext.id)}
+                />
+              </div>
             ))}
+          </div>
         </div>
-    );
+      );
+      
 };
 
 export default Blacklist;
