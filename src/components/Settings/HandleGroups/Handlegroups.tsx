@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Extension, GroupMap } from "../../../utils/types";
 import { getChrome } from "../../../utils/getChrome";
+import './HandleGroups.css'
 
 const chrome = getChrome()
 
@@ -36,6 +37,12 @@ const HandleGroups: React.FC = () => {
         setNewGroupName("");
     };
 
+    const handleDeleteGroup = (groupName: string) => {
+        const updatedGroups = { ...groups };
+        delete updatedGroups[groupName];
+        saveGroups(updatedGroups);
+    };
+
     const toggleExtensionInGroup = (groupName: string, extId: string) => {
         const group = groups[groupName] || [];
         const updated = group.includes(extId)
@@ -47,34 +54,48 @@ const HandleGroups: React.FC = () => {
     };
 
     return (
-        <div style={{ padding: 16 }}>
-            <h2>Manage Extension Groups</h2>
+        <div className="group-container">
+            <h1>Manage Extension Groups</h1>
 
-            <div style={{ marginBottom: 16 }}>
+            <div className="group-input">
                 <input
                     value={newGroupName}
                     onChange={(e) => setNewGroupName(e.target.value)}
                     placeholder="New group name"
-                    style={{ marginRight: 8 }}
                 />
                 <button onClick={handleGroupCreation}>Create Group</button>
             </div>
 
-            {Object.entries(groups).map(([groupName, extIds]) => (
-                <div key={groupName} style={{ marginBottom: 16 }}>
-                    <h3>{groupName}</h3>
-                    {extensions.map((ext) => (
-                        <label key={ext.id} style={{ display: "block", marginLeft: 8 }}>
-                            <input
-                                type="checkbox"
-                                checked={extIds.includes(ext.id)}
-                                onChange={() => toggleExtensionInGroup(groupName, ext.id)}
-                            />
-                            {ext.name}
-                        </label>
-                    ))}
-                </div>
-            ))}
+            <div className="grid-container">
+                {Object.entries(groups).map(([groupName, extIds]) => (
+                    <div key={groupName} className="group-card">
+                        <div className="group-card-header">
+                            <h2>{groupName}</h2>
+                            <button
+                                className="delete-button"
+                                onClick={() => handleDeleteGroup(groupName)}
+                                title="Delete Group"
+                            >
+                                🗑️
+                            </button>
+                        </div>
+                        {extensions.map((ext) => (
+                            <label key={ext.id} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                                <input
+                                    type="checkbox"
+                                    checked={extIds.includes(ext.id)}
+                                    onChange={() => toggleExtensionInGroup(groupName, ext.id)}
+                                    className="custom-checkbox"
+                                />
+                                {ext.icons?.[0] && (
+                                    <img src={ext.icons[0].url} alt="" width={16} height={16} />
+                                )}
+                                {ext.name}
+                            </label>
+                        ))}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
