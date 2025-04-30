@@ -1,7 +1,3 @@
-// src/mocks/mockChrome.ts
-
-import { Extension } from "../utils/types";
-
 const fakeExtensions = [
     { id: "ext1", name: "Ext 1", enabled: true, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
     { id: "ext2", name: "Ext 2", enabled: false, type: "extension", mayDisable: true, icons: [{size: 128, url: "" }] },
@@ -51,13 +47,12 @@ export const mockChrome = {
         },
     },
     management: {
-        getAll: (callback: (exts: Extension[]) => void) => {
-            callback(fakeExtensions);
+        getAll: () => {
+            return Promise.resolve(fakeExtensions);
         },
         setEnabled: async (id: string, enabled: boolean) => {
             const ext = fakeExtensions.find(e => e.id === id);
             if (ext) ext.enabled = enabled;
-            console.log(`Mock: Set ${id} to ${enabled ? "enabled" : "disabled"}`);
         },
     },
 };
