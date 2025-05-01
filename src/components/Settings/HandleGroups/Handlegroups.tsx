@@ -11,7 +11,7 @@ const HandleGroups: React.FC = () => {
     const [newGroupName, setNewGroupName] = useState("");
 
     useEffect(() => {
-        chrome.management.getAll((exts) => {
+        chrome.management.getAll().then((exts) => {
             const filtered = exts.filter(
                 (ext) => ext.type === "extension" && ext.id !== chrome.runtime.id
             );
@@ -62,9 +62,13 @@ const HandleGroups: React.FC = () => {
                     value={newGroupName}
                     onChange={(e) => setNewGroupName(e.target.value)}
                     placeholder="New group name"
+                    className="group-input__field"
                 />
-                <button onClick={handleGroupCreation}>Create Group</button>
+                <button onClick={handleGroupCreation} className="group-input__button">
+                    Create Group
+                </button>
             </div>
+
 
             <div className="grid-container">
                 {Object.entries(groups).map(([groupName, extIds]) => (
