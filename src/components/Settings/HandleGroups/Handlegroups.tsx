@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Extension, GroupMap } from "../../../utils/types";
 import { getChrome } from "../../../utils/getChrome";
 import './HandleGroups.css'
+import GroupsDescription from "./GroupsDescription/GroupsDescription";
 
 const chrome = getChrome()
 
@@ -56,6 +57,8 @@ const HandleGroups: React.FC = () => {
     return (
         <div className="group-container">
             <h1>Manage Extension Groups</h1>
+
+            <GroupsDescription />
 
             <div className="group-input">
                 <input

@@ -1,0 +1,21 @@
+.groups-description {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.groups-description p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.highlight {
+    font-weight: 900;
+    color: #000000;
+    padding: 2px 4px;
+}

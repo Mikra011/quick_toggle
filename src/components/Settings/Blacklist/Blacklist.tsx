@@ -3,6 +3,7 @@ import { Extension } from '../../../utils/types';
 import { getChrome } from '../../../utils/getChrome';
 import ToggleSwitch from '../../common/ToggleSwitch';
 import "./Blacklist.css"
+import BlacklistDescription from './BlacklistDescription/BlacklistDescription';
 
 const chrome = getChrome()
 
@@ -33,6 +34,7 @@ const Blacklist: React.FC = () => {
   return (
     <div className="blacklist-container">
       <h1>Blacklist Extensions</h1>
+      <BlacklistDescription />
       <div className="grid-container">
         {extensions.map(ext => (
           <div key={ext.id} className="card">
