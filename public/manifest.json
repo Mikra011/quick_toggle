@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Quick Toggle",
     "version": "1.0",
-    "description": "Toggle all your Chrome extensions with a click.",
+    "description": "Disable/Enable all your Chrome extensions with a click.",
     "options_page": "settings.html",
     "permissions": [
         "management",
