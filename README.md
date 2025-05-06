@@ -17,9 +17,16 @@
 ## 📦 Installation
 
 1. Clone or download the repository.
-2. Go to `chrome://extensions` in your Chrome browser.
-3. Enable **Developer Mode** (top right).
-4. Click **Load unpacked** and select the project folder.
+2. Run the following commands in the project directory:
+
+```bash
+npm install
+npm run dev
+```
+
+3. Go to `chrome://extensions` in your Chrome browser.
+4. Enable **Developer Mode** (top right).
+5. Click **Load unpacked** and select the project folder.
 
 ---
 
